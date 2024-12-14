@@ -18,6 +18,7 @@ const Signup = () => {
         setError('');
         try {
             const userData = await authService.createAccount(data);
+            console.log(userData);
             if(userData){
                 const userData = await authService.getCurrentUser();
                 dispatch(authLogin(userData));
@@ -27,7 +28,7 @@ const Signup = () => {
                 }
                 navigate('/');
             }
-        } catch (error) {
+        } catch(error) {
             setError(error.message);
         }
     }
@@ -80,7 +81,10 @@ const Signup = () => {
                             required : true,
                         })}
                     />
-                    <Button type='submit' className='w-full'>
+                    <Button 
+                        type='submit' 
+                        className='w-full'
+                        >
                         Create Account
                     </Button>
                 </div>

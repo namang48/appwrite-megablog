@@ -23,11 +23,11 @@ export class AuthService{
             if (userAccount) {
                 // Call another method
                 this.login({email,password});
-            } else {
                 return userAccount
             }
         }catch(error){
-            console.log("Appwrite Service :: createAccount :: error ", error);
+            // console.log("Appwrite Service :: createAccount :: error ", error);
+            throw error;
         }
     }
 
@@ -35,13 +35,14 @@ export class AuthService{
         try {
             return await this.account.createEmailPasswordSession(email,password);
         } catch (error) {
-            console.log("Appwrite Service :: login :: error ", error);
+            // console.log("Appwrite Service :: login :: error ", error);
+            throw error;
         }
     }
 
     async getCurrentUser(){
         try {
-            return this.account.get();
+            return await this.account.get();
         } catch (error) {
             console.log("Appwrite Service :: getCurrent User :: error ", error);
         }

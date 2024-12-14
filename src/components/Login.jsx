@@ -11,7 +11,7 @@ function Login() {
   const dispatch = useDispatch();
 
   const { register, handleSubmit } = useForm();
-  const [error, setError] = useState("");
+  const [error, setError] = useState(null);
 
   const login = async (data) => {
     setError("");
@@ -25,7 +25,7 @@ function Login() {
         navigate("/");
       }
     } catch (error) {
-      setError(error.message);
+        setError(error.message)
     }
   };
 
