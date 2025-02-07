@@ -50,7 +50,7 @@ const Header = () => {
             {navItems.map((item)=> item.active ? (
               <li key={item.name}>
                 <button
-                  className='inline-block bg-blue-300 mx-1 px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'
+                  className='inline-block bg-blue-300 mx-1 px-6 py-2 duration-200 hover:bg-blue-100 rounded-full hover:scale-105 transition-all'
                   onClick={()=> navigate(item.slug)}                
                 >{item.name}</button>
               </li>
